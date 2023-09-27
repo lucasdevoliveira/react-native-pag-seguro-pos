@@ -19,12 +19,14 @@ buildscript {
     dependencies {
         classpath('com.android.tools.build:gradle:7.4.2')
         classpath('com.facebook.react:react-native-gradle-plugin')
-        classpath('com.google.gms:google-services:4.3.15')
     }
 }
 
 allprojects {
     repositories {
+        maven {
+            url 'https://github.com/pagseguro/PlugPagServiceWrapper/raw/master'
+        }
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url(new File(['node', '--print', "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim(), '../android'))
